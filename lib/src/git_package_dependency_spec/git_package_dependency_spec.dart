@@ -34,7 +34,7 @@ part 'git_package_dependency_spec.g.dart';
 /// Dependency on a package stored in a Git repository (https://dart.dev/tools/pub/dependencies)
 @immutable
 @FunctionalData()
-class GitPackageDependencySpec extends $GitPackageDependencySpec {
+class GitPackageDependencySpec extends _$GitPackageDependencySpec {
   /// Default constructor
   const GitPackageDependencySpec({
     required this.package,

@@ -31,18 +31,27 @@ import 'package:plain_optional/plain_optional.dart';
 import 'hosted_package_dependency_spec.dart';
 
 extension HostedPackageDependencySpecToJson on HostedPackageDependencySpec {
-  Map<String, dynamic> toJson() => <String, dynamic>{
-        package: url.hasValue
-            ? <String, dynamic>{
-                _Tokens.hosted: <String, dynamic>{
-                  if (name.hasValue) _Tokens.name: name.valueOr(() => ''),
-                  if (url.hasValue) _Tokens.url: url.valueOr(() => ''),
-                },
-                if (version.hasValue)
-                  _Tokens.version: version.valueOr(() => ''),
-              }
-            : _nullIfEmpty(version.valueOr(() => '')),
+  Map<String, dynamic> toJson() {
+    if (hosted.hasValue) {
+      return {
+        package: {
+          _Tokens.hosted: hosted.valueOr(
+            () => '',
+          ),
+          if (version.hasValue)
+            _Tokens.version: version.valueOr(
+              () => '',
+            ),
+        },
       };
+    }
+
+    return {
+      package: version.valueOr(
+        () => '',
+      )
+    };
+  }
 }
 
 HostedPackageDependencySpec loadHostedPackageDependencySpec(
@@ -71,20 +80,17 @@ HostedPackageDependencySpec _loadGenericHostedDependency(
   String package,
   Map<String, dynamic> definition,
 ) {
-  final definitionBody = definition[_Tokens.hosted] as Map<String, dynamic>;
+  final hostedDef = definition[_Tokens.hosted];
+  final versionDef = definition[_Tokens.version];
+
   return HostedPackageDependencySpec(
     package: package,
-    version: Optional(definition[_Tokens.version] as String?),
-    name: Optional(definitionBody[_Tokens.name] as String?),
-    url: Optional(definitionBody[_Tokens.url] as String?),
+    hosted: Optional(hostedDef as String?),
+    version: Optional(versionDef as String?),
   );
 }
 
 class _Tokens {
-  static const name = 'name';
   static const version = 'version';
-  static const url = 'url';
   static const hosted = 'hosted';
 }
-
-String? _nullIfEmpty(String s) => s.isEmpty ? null : s;

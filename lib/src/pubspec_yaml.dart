@@ -50,7 +50,7 @@ part 'pubspec_yaml.g.dart';
 /// - https://pub.dev/packages/functional_data is used to provide data type facilities
 @immutable
 @FunctionalData()
-class PubspecYaml extends $PubspecYaml {
+class PubspecYaml extends _$PubspecYaml {
   /// Default constructor
   const PubspecYaml({
     required this.name,

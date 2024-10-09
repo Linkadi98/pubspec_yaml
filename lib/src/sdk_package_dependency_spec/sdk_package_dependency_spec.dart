@@ -34,7 +34,7 @@ part 'sdk_package_dependency_spec.g.dart';
 /// Package coming from an SDK (https://dart.dev/tools/pub/dependencies)
 @immutable
 @FunctionalData()
-class SdkPackageDependencySpec extends $SdkPackageDependencySpec {
+class SdkPackageDependencySpec extends _$SdkPackageDependencySpec {
   /// Default constructor
   const SdkPackageDependencySpec({
     required this.package,

@@ -6,6 +6,7 @@ part of 'package_dependency_spec.dart';
 // SumTypesGenerator
 // **************************************************************************
 
+// ignore_for_file: unused_element
 abstract class _$PackageDependencySpec {
   const _$PackageDependencySpec({
     this.sdk,
@@ -51,17 +52,14 @@ abstract class _$PackageDependencySpec {
       GitPackageDependencySpec? git,
       PathPackageDependencySpec? path,
       HostedPackageDependencySpec? hosted,
-    })
-        make,
-  ) {
-    return iswitch(
-      sdk: (sdk) => make(sdk: sdk),
-      git: (git) => make(git: git),
-      path: (path) => make(path: path),
-      hosted: (hosted) => make(hosted: hosted),
-    );
-  }
-
+    }) make,
+  ) =>
+      iswitch(
+        sdk: (sdk) => make(sdk: sdk),
+        git: (git) => make(git: git),
+        path: (path) => make(path: path),
+        hosted: (hosted) => make(hosted: hosted),
+      );
   $T iswitch<$T>({
     required $T Function(SdkPackageDependencySpec) sdk,
     required $T Function(GitPackageDependencySpec) git,
@@ -83,11 +81,11 @@ abstract class _$PackageDependencySpec {
   }
 
   $T iswitcho<$T>({
+    required $T Function() otherwise,
     $T Function(SdkPackageDependencySpec)? sdk,
     $T Function(GitPackageDependencySpec)? git,
     $T Function(PathPackageDependencySpec)? path,
     $T Function(HostedPackageDependencySpec)? hosted,
-    required $T Function() otherwise,
   }) {
     $T _otherwise(Object? _) => otherwise();
     return iswitch(
@@ -100,15 +98,14 @@ abstract class _$PackageDependencySpec {
 
   @override
   bool operator ==(
-    dynamic other,
-  ) {
-    return other.runtimeType == runtimeType &&
-        other.sdk == sdk &&
-        other.git == git &&
-        other.path == path &&
-        other.hosted == hosted;
-  }
-
+    Object other,
+  ) =>
+      other.runtimeType == runtimeType &&
+      other is PackageDependencySpec &&
+      other.sdk == sdk &&
+      other.git == git &&
+      other.path == path &&
+      other.hosted == hosted;
   @override
   int get hashCode {
     var result = 17;
@@ -146,15 +143,3 @@ abstract class PackageDependencySpecRecordBase<Self> {
   PathPackageDependencySpec? get path;
   HostedPackageDependencySpec? get hosted;
 }
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_dynamic_calls
-// ignore_for_file: avoid_equals_and_hash_code_on_mutable_classes
-// ignore_for_file: duplicate_ignore
-// ignore_for_file: lines_longer_than_80_chars
-// ignore_for_file: prefer_asserts_with_message
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: prefer_single_quotes
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unnecessary_this
-// ignore_for_file: unused_element

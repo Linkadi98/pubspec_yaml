@@ -6,8 +6,8 @@ part of 'pubspec_yaml.dart';
 // FunctionalDataGenerator
 // **************************************************************************
 
-abstract class $PubspecYaml {
-  const $PubspecYaml();
+abstract class _$PubspecYaml {
+  const _$PubspecYaml();
 
   String get name;
   Optional<String> get version;
@@ -60,8 +60,8 @@ abstract class $PubspecYaml {
         customFields: customFields ?? this.customFields,
       );
 
-  PubspecYaml copyUsing(void Function(PubspecYaml$Change change) mutator) {
-    final change = PubspecYaml$Change._(
+  PubspecYaml copyUsing(void Function(_PubspecYaml$Change change) mutator) {
+    final change = _PubspecYaml$Change._(
       this.name,
       this.version,
       this.description,
@@ -149,8 +149,8 @@ abstract class $PubspecYaml {
   }
 }
 
-class PubspecYaml$Change {
-  PubspecYaml$Change._(
+class _PubspecYaml$Change {
+  _PubspecYaml$Change._(
     this.name,
     this.version,
     this.description,
@@ -279,15 +279,3 @@ class PubspecYaml$ {
         customFieldsContainer.copyWith(customFields: customFields),
   );
 }
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_dynamic_calls
-// ignore_for_file: avoid_equals_and_hash_code_on_mutable_classes
-// ignore_for_file: duplicate_ignore
-// ignore_for_file: lines_longer_than_80_chars
-// ignore_for_file: prefer_asserts_with_message
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: prefer_single_quotes
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unnecessary_this
-// ignore_for_file: unused_element

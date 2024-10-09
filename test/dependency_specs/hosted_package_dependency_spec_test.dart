@@ -114,16 +114,7 @@ void main() {
       test('produces object with correct dependency name on server', () {
         expect(
           pubspec.dependencies.first.iswitcho(
-            hosted: (p) => p.name.valueOr(() => ''),
-            otherwise: () => '',
-          ),
-          name,
-        );
-      });
-      test('produces object with correct server url', () {
-        expect(
-          pubspec.dependencies.first.iswitcho(
-            hosted: (p) => p.url.valueOr(() => ''),
+            hosted: (p) => p.hosted.valueOr(() => ''),
             otherwise: () => '',
           ),
           url,
@@ -209,9 +200,7 @@ name: pubspec_yaml
 
 dependencies:
   $dependency:
-    hosted:
-      name: $name
-      url: $url
+    hosted: $url
 ''';
 
 const pubspecWithPackageHostedElsewhereWithVersionSpec = '''
@@ -219,8 +208,6 @@ name: pubspec_yaml
 
 dependencies:
   $dependency:
-    hosted:
-      name: $name
-      url: $url
+    hosted: $url
     version: $version
 ''';

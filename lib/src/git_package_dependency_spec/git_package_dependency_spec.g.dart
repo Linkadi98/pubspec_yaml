@@ -6,8 +6,8 @@ part of 'git_package_dependency_spec.dart';
 // FunctionalDataGenerator
 // **************************************************************************
 
-abstract class $GitPackageDependencySpec {
-  const $GitPackageDependencySpec();
+abstract class _$GitPackageDependencySpec {
+  const _$GitPackageDependencySpec();
 
   String get package;
   String get url;
@@ -28,8 +28,8 @@ abstract class $GitPackageDependencySpec {
       );
 
   GitPackageDependencySpec copyUsing(
-      void Function(GitPackageDependencySpec$Change change) mutator) {
-    final change = GitPackageDependencySpec$Change._(
+      void Function(_GitPackageDependencySpec$Change change) mutator) {
+    final change = _GitPackageDependencySpec$Change._(
       this.package,
       this.url,
       this.ref,
@@ -70,8 +70,8 @@ abstract class $GitPackageDependencySpec {
   }
 }
 
-class GitPackageDependencySpec$Change {
-  GitPackageDependencySpec$Change._(
+class _GitPackageDependencySpec$Change {
+  _GitPackageDependencySpec$Change._(
     this.package,
     this.url,
     this.ref,
@@ -106,15 +106,3 @@ class GitPackageDependencySpec$ {
     (pathContainer, path) => pathContainer.copyWith(path: path),
   );
 }
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_dynamic_calls
-// ignore_for_file: avoid_equals_and_hash_code_on_mutable_classes
-// ignore_for_file: duplicate_ignore
-// ignore_for_file: lines_longer_than_80_chars
-// ignore_for_file: prefer_asserts_with_message
-// ignore_for_file: prefer_expression_function_bodies
-// ignore_for_file: prefer_single_quotes
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unnecessary_this
-// ignore_for_file: unused_element
